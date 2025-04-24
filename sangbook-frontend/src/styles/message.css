@@ -1,0 +1,585 @@
+/* =================HIỂN THỊ MESSAGE BOX =================*/
+.btn-message{
+    position: relative;
+}
+/* Hộp Chat */
+.message-box {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 360px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    
+}
+
+/* Header */
+.chat-header {
+    background-color: #0078FF;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header button {
+    background: none;
+    border: none;
+    color: rgb(70, 2, 2);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Search Bar */
+.chat-search {
+    font-size: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* Danh sách tin nhắn */
+/* Danh sách tin nhắn */
+.chat-list {
+    padding: 10px;
+    max-height: 240px;
+    overflow-y: auto;
+    scrollbar-width: thin; /* Dành cho Firefox */
+    scrollbar-color: #ccc #f1f1f1; /* Màu thanh cuộn và nền */
+}
+
+/* Custom scrollbar cho Webkit (Chrome, Edge, Safari) */
+.chat-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-list::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+    background: #ccc; 
+    border-radius: 10px;
+}
+
+.chat-list::-webkit-scrollbar-thumb:hover {
+    background: #aaa; 
+}
+
+
+.chat-item {
+    display: flex;
+    gap:10px;
+    align-items: center;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-item:hover {
+    background-color: #f1f1f1;
+}
+
+.chat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-status {
+    font-size: 12px;
+    color: gray;
+}
+
+
+/*========================= Khung chat của 2 người =========================*/
+
+.message-chat {
+    background-color: #fff;
+    z-index: 1000;
+    position: fixed;
+    height: 70%;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.message-chat-header {
+    padding: 5px;
+    font-size: 20px;
+    background: var(--main-color);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.message-chat-header button{
+    border: none;
+    color: white;   
+    background-color: var(--main-color);
+    padding: 0 15px;
+}
+
+.message-chat-header .message-chat-info-recieve {
+    display: flex;
+    align-items: center;
+}
+.icon-close-box{
+    color: white;
+}
+
+.img-avt {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-name {
+    font-size: 14px;
+}
+
+.message-chat-main {
+    height: 80%;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.chat-recieve-name, .chat-send-name{
+    font-weight: bold;
+    width: 100px;
+}
+.message-chat-send img, .message-chat-recieve img{      /*Canh img ra giữa*/
+    margin-bottom: 30px;
+}
+
+/* Tin nhắn chính */
+.message-chat-send .label-chat,
+.message-chat-recieve .label-chat {
+    position: relative;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    word-wrap: break-word; /* Tự động xuống dòng nếu nội dung quá dài */
+    display: inline-block; /* Khung co giãn theo nội dung */
+    max-width: 80%; /* Giới hạn tối đa để không vượt quá khung chat */
+    /* Bỏ min-width để kích thước tự nhiên theo content */
+}
+
+.message-chat-send .label-chat {
+    background: var(--main-color);
+    color: white;
+}
+
+.message-chat-recieve .label-chat {
+    background: #f1f0f0;
+    color: black;
+}
+
+.message-chat-footer {
+
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: white;
+    display: flex;
+    align-items: center;
+}
+
+.message-chat-footer button {
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.message-chat-footer button:hover {
+    background: #c60e3f;
+}
+.chat-time-recieve, .chat-time-send {
+    font-size: 12px;
+    color: gray;
+    display: block;
+    margin-top: 2px;
+}
+.chat-time-send {
+    color: #000000;
+}
+
+
+.friend-request{
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+}
+.friend-request-item{
+    margin: 10px;
+}
+
+/* CANH LỀ TRÁI HOẶC LỀ PHẢI THEO NGƯỜI GỬI VÀ NGƯỜI NHẬN */
+.message-chat-send,
+.message-chat-recieve,
+.message-options-recieve,
+.message-options-send { 
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    gap:5px;
+}
+.message-chat-send, .message-options-send {
+    justify-content: flex-end;
+}
+.message-chat-recieve, .message-options-recieve {
+    justify-content: flex-start;
+}
+
+.message-options-recieve{
+    position: absolute;
+    bottom:-40px;
+    left: 5px;
+}
+.message-options-send{
+    position: absolute;
+    bottom: -40px;
+    right: 5px;
+}
+.message-chat-item{
+    position: relative;
+}
+.list-friend-content-item{
+    cursor: pointer;
+}
+.message-react{
+    font-size: 24px;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+}
+.message-list-react{
+    padding: 5px;
+    background-color: #b9bcdd;
+    position: absolute;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+/* Nút trong options */
+.message-options-recieve button,
+.message-options-send button {
+    font-size: 12px;
+    padding: 6px 10px;
+    border: none;
+    background-color: #dbd7d7;
+    color: var(--main-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hiệu ứng hover */
+.message-options-recieve button:hover,
+.message-options-send button:hover {
+    background-color: var(--main-color);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng click (ấn xuống) */
+.message-options-recieve button:active,
+.message-options-send button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Ẩn danh sách reaction mặc định */
+.message-list-react {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Hiển thị danh sách reaction khi hover vào nút "Thả cảm xúc" */
+.btn-react:hover + .message-list-react,
+.message-list-react:hover {
+    display: flex;
+    gap: 8px;
+}
+
+/* Tăng kích thước icon reaction */
+.message-list-react i {
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hiệu ứng khi hover vào reaction */
+.message-list-react i:hover {
+    transform: scale(1.2);
+}
+
+.icon-close{
+    cursor: pointer;
+}
+
+/* Phần span chứa reaction */
+.message-chat-send .label-chat span,
+.message-chat-recieve .label-chat span {
+    position: absolute;
+    bottom: -20px; /* Dịch xuống dưới để không đè lên nội dung tin nhắn */
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Khoảng cách giữa các biểu tượng nếu có nhiều reaction */
+    padding: 2px 6px; /* Khoảng đệm nhỏ để nổi bật */
+    background: rgba(255, 255, 255, 0.9); /* Nền trắng mờ để nổi bật */
+    border-radius: 12px; /* Bo góc nhẹ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Bóng đổ để tạo chiều sâu */
+    font-size: 16px; /* Kích thước biểu tượng */
+}
+
+/* Định vị khác nhau cho tin nhắn gửi và nhận */
+.message-chat-send .label-chat span {
+    left: 5px; /* Căn trái cho tin nhắn gửi đi */
+    width: 30px;
+}
+
+.message-chat-recieve .label-chat span {
+    right: 5px; /* Căn phải cho tin nhắn nhận được */
+}
+
+/* Tăng khoảng cách giữa các tin nhắn để tránh đè reaction */
+.message-chat-item {
+    margin-bottom: 25px; /* Tăng thêm để có chỗ cho span */
+}
+
+/* Đảm bảo nội dung tin nhắn không bị đè */
+.chat-send-content,
+.chat-recieve-content {
+    margin-bottom: 5px; /* Khoảng cách giữa nội dung và reaction */
+}
+
+/* Video Call Styles */
+.video-call-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.video-call-container {
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-call-header {
+  padding: 15px;
+  background-color: #1877F2;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video-call-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.video-call-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.video-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  background-color: #000;
+}
+
+.local-video, .remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.local-video {
+  transform: scaleX(-1);
+}
+
+.call-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.end-call-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ff4444;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.end-call-button:hover {
+  background-color: #cc0000;
+  transform: scale(1.1);
+}
+
+/* Video Call Error Styles */
+.video-call-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.video-call-error i {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #ff4444;
+}
+
+.video-call-error p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.permission-button {
+  background-color: #1877F2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.permission-button:hover {
+  background-color: #166fe5;
+  transform: scale(1.05);
+}
+
+/* Incoming Call Styles */
+.incoming-call {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.call-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.accept-call-button,
+.reject-call-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.accept-call-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.reject-call-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.accept-call-button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+}
+
+.reject-call-button:hover {
+  background-color: #d32f2f;
+  transform: scale(1.1);
+}

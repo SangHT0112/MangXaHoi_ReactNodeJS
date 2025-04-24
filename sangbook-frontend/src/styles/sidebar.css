@@ -1,0 +1,172 @@
+/* sidebar.css */
+@import url('config.css');
+@import url('color.css');
+
+/* CSS cơ bản từ app.css */
+.main {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(120deg, #4a90e2, #ffffff);
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transition: background 1s ease;
+}
+
+.SidebarRight {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(120deg, #ffffff, #4a90e2);
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.content {
+    width: 40%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 40px;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 25%;
+    }
+
+    .SidebarRight {
+        width: 25%;
+    }
+
+    .content {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar, .SidebarRight {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+/* CSS từ sidebar.css */
+.sidebar.dark-mode {
+    background: black;
+}
+
+.sidebar.dark-mode a, ul li a {
+    color: white;
+}
+
+.friend-show-profile {
+    color: black;
+}
+
+.sidebarright.dark-mode .friend-show-profile {
+    color: white;
+}
+
+.sidebarright.dark-mode {
+    background: black;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px;
+}
+
+.sidebar ul li {
+    display: flex;
+    gap: 10px;
+    border-radius: 15px;
+}
+
+.sidebar ul li:hover {
+    background-color: #fff;
+}
+
+.sidebar ul li a {
+    padding: 5px 0;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar ul li a i {
+    padding: 0 10px;
+    font-size: 25px;
+}
+
+.sidebar img, .block1 img {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+}
+
+.sidebarright-message {
+    width: 100%;
+    height: 60px;
+}
+
+/* Khi ở trang /music */
+.main.music-mode {
+    background: #170f23 !important; /* Màu nền cho main */
+}
+
+.main.music-mode .sidebar {
+    background: #2b1c42 !important; /* Màu nền cho sidebar */
+}
+
+.main.music-mode .SidebarRight {
+    background: #2b1c42 !important; /* Màu nền cho SidebarRight */
+}
+
+.main.music-mode .sidebar,
+.main.music-mode .sidebar a,
+.main.music-mode .sidebar ul li a,
+.main.music-mode .SidebarRight,
+.main.music-mode .friend-show-profile,
+.main.music-mode .SidebarRight .post-name,
+.main.music-mode .SidebarRight .list-friend-header span,
+.main.music-mode .SidebarRight .list-friend-footer span,
+.main.music-mode .SidebarRight button {
+    color: white !important; /* Màu chữ trắng */
+}
+.main.music-mode .friend-show-profile:hover{
+    color: black !important;
+}
+
+.main.music-mode .sidebar ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important; /* Hover nhẹ */
+}
+
+.preview-avatar{
+    width: 100px;
+    height: 100px;
+}

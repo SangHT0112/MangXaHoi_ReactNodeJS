@@ -1,0 +1,65 @@
+@import url('color.css');
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    background: linear-gradient(120deg, #4a90e2, #a64bf4);
+
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+h1{
+    color: var(--main-color);
+}
+.container {
+    width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+button {
+    width: 100%;
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: var(--main-color);
+    opacity: 0.8;
+}
+input:focus {
+    border: 2px solid #14ba59; 
+    outline: none; 
+    box-shadow: 0 0 5px #73bc91; 
+}
+
+.error {
+    color: var(--main-color);
+    font-size: 14px;
+    display: block;
+    text-align: left;
+    margin-left: 15px;  /* Đẩy text về bên trái */
+}
+
+
+.avatar{
+    width: 140px;
+}

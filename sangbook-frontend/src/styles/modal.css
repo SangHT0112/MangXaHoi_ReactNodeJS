@@ -1,0 +1,164 @@
+/* Mặc định modal bị ẩn */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 1000000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Khi modal hiển thị */
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hiệu ứng mở modal box */
+.modal-inner {
+    background: white;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh; /* Giới hạn chiều cao modal */
+    overflow-y: auto; /* Bật cuộn nếu nội dung quá dài */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* Khi modal mở */
+.modal.show .modal-inner {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Khi đóng modal (tạo hiệu ứng fade-out) */
+.modal:not(.show) .modal-inner {
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0;
+}
+/* Header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.modal-header p{
+    color: var(--main-color);
+    font-weight: bold;
+}
+.modal-header i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-header i:hover {
+    color: red;
+}
+
+/* Nội dung modal */
+.modal-content {
+    margin-top: 20px;
+    border: none;
+}
+
+.modal-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="file"] {
+    width: 80%;
+    background-color: #fff;
+    padding: 30px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+
+/* Footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.modal-footer input{
+    width: 100%;
+    border: none;
+}
+
+.modal-footer button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.modal-footer button:hover {
+    background-color: var(--main-color);
+    transform: scale(1.05);
+}
+
+.preview-img, .preview-video{
+    width: 400px;
+    height: 400px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px; /* Độ cao mặc định */
+    max-height: 300px; /* Giới hạn độ cao tối đa */
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    resize: none; /* Không cho kéo thả */
+    overflow-y: auto; /* Hiện thanh cuộn khi nội dung dài */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Khi focus vào textarea, hiệu ứng đẹp hơn */
+textarea:focus {
+    border-color: #b7b3b3;
+    background-color: #f9f9f9;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ */
+}
+
+/* Placeholder mờ dần */
+textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+    transition: opacity 0.3s;
+}
+
+/* Khi nhập vào textarea, placeholder sẽ mờ đi */
+textarea:focus::placeholder {
+    opacity: 0.5;
+}

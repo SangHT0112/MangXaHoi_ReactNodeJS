@@ -1,0 +1,390 @@
+.story-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+  background: linear-gradient(120deg, #ffffff, #4a90e2);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.story-list {
+  display: flex;
+  height: 100%;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Hiệu ứng cuộn mượt mà */
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  padding: 10px;
+  scrollbar-width: none;
+}
+
+.story-list::-webkit-scrollbar {
+  display: none;
+}
+
+.story-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 140px;
+  height: 220px;
+  border-radius: 15px;
+  border: 3px solid white; /* Viền màu trắng */
+  background: white;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+.story-item:hover {
+  transform: scale(1.1);
+}
+
+.story-thumbnail {
+  width: 100%;
+  height: 200px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.story-info {
+  margin-left: 5px;  
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  
+}
+
+.story-info p {
+  max-width: 100px; /* Giới hạn chiều rộng */
+  white-space: nowrap; /* Không xuống dòng */
+  overflow: hidden; /* Ẩn phần dư */
+  text-overflow: ellipsis; /* Hiển thị dấu "..." khi quá dài */
+}
+
+
+.story-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+}
+
+.scroll-btn {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
+
+/* Story Modal */
+.story-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Nền tối hơn cho cảm giác tập trung */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.story-modal small{
+  width: 100%;
+  width: 0%;
+  height: 10px;
+  background-color: rgb(139, 139, 142);
+  transition: width 1s linear;
+}
+
+.story-content {
+  position: relative;
+  background: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Tránh tràn nội dung */
+}
+
+/* Story Content */
+.story-content {
+  position: relative;
+  width: 100%;
+  max-width: 450px; /* Chiều rộng giống Story Facebook */
+  height: 100vh;
+  max-height: 800px;
+  background: #000;
+  border-radius: 0; /* Không bo góc để giống Facebook */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Story Media */
+.story-media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Giữ tỷ lệ gốc */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.story-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.story-thumbnail video {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.story-interact{
+  color: white;
+}
+
+
+/* THEM STORY */
+.add-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 100%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.add-story:hover {
+  transform: scale(1.1);
+}
+
+.add-story-icon {
+  font-size: 30px;
+  font-weight: bold;
+  color: #007bff;
+  background: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #007bff;
+  margin-bottom: 5px;
+}
+
+
+/* Nút next pre xem story */
+.story-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.story-nav.left {
+  left: 30%;
+}
+
+.story-nav.right {
+  right: 30%;
+}
+
+.story-nav:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+.story-close {
+  position: absolute;
+  top: 10px;
+  right: 35%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  z-index: 11;
+  border-radius: 50%;
+}
+
+.story-close:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+.story-song-info img{
+  width: 70px;
+  height: 70px;
+}
+
+
+.story-song-info{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.story-song-info {
+  width: 280px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: linear-gradient(120deg, #ffffff, #4a90e2);
+
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.story-song-info p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px; /* Điều chỉnh theo kích thước mong muốn */
+}
+
+
+.story-content-header{
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-container {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-bar {
+  height: 5px;
+  width: 0%;
+  background: linear-gradient(120deg, #ffffff, #4a90e2);
+
+  transition: width 1s linear;
+}
+
+
+
+
+
+
+
+
+/* Story Header */
+.story-content-header {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  z-index: 10;
+}
+
+.story-content-header .d-flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-avt {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.story-content-header p {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.post-time {
+
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Story Interact */
+.story-interact {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  color: #fff;
+  font-size: 13px;
+  z-index: 10;
+}
+
+/* Story Song Info */
+
+.song-cover {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}

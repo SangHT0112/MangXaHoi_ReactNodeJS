@@ -1,0 +1,209 @@
+@import url("color.css");
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    display: flex;
+}
+.profile-container {
+    width: 60%;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+.cover-photo {
+    background-color: #adadad;
+    height: 300px;
+    border: none;
+    position: relative;
+}
+
+.cover-photo img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(100%);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    position: absolute;
+    top: -75px;
+    left: 20px;
+}
+.user-info {
+    margin-left: 180px;
+}
+.profile-actions {
+    margin-top: 10px;
+}
+.profile-actions button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.profile-nav {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.profile-nav a {
+    text-decoration: none;
+    color: #65676b;
+    font-size: 16px;
+    padding: 10px;
+}
+.profile-nav a.active {
+    font-weight: bold;
+    border-bottom: 3px solid #1877f2;
+}
+.posts-section {
+    padding: 15px 100px;
+    background: #f0f2f5;
+}
+.post {
+    background: white;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post-reaction-list{
+    left: 0;
+    top: -100px;
+    max-height: 100px;
+    overflow-y: auto;
+
+}
+
+
+
+/* Profile card */
+.profile-card {
+    background: white;
+    padding: 20px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.quote {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.info {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.info li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.album {
+    position: relative;
+    width: 48%;
+}
+
+.album img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.overlay {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.album p {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.profile-list-friend {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột */
+    gap: 10px; /* Khoảng cách giữa các ô */
+    padding: 10px;
+}
+
+.profile-list-friend-item {
+    background: white;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-list-friend-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-list-friend-item p {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}

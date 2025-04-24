@@ -1,0 +1,555 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  *:focus {
+    outline: none;
+  }
+
+  .content-music{
+    background-color: #170f23;
+  }
+
+  .music-header {
+    display: flex;
+    flex-direction: column; /* Sắp xếp các phần tử con theo chiều dọc */
+    align-items: center; /* Căn giữa các phần tử con theo chiều ngang */
+    justify-content: center; /* Căn giữa các phần tử con theo chiều dọc */
+  }
+  .music-header h2 {
+    padding: 10px;
+    font-size: 25px;
+    background: linear-gradient(91.56deg, #ff9357 1.54%, #9100ff 98.71%);
+    -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt Webkit như Chrome, Safari */
+    background-clip: text; /* Thuộc tính chuẩn */
+    color: transparent; /* Làm cho text trong suốt để hiển thị gradient */
+  }
+
+  .music-header button {
+    background: #9B4DE0; /* Gradient giống music-header */
+    color: #ffffff; /* Màu chữ trắng để nổi bật trên gradient */
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    border: none; /* Bỏ viền mặc định */
+    border-radius: 25px; /* Bo tròn nút */
+    font-size: 16px; /* Cỡ chữ */
+    font-weight: bold; /* Chữ đậm */
+    cursor: pointer; /* Con trỏ tay khi hover */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà */
+  }
+  
+  /* Hiệu ứng hover */
+  .music-header button:hover {
+    background: linear-gradient(91.56deg, #ff9357 1.54%, #9100ff 98.71%) 0% 0% / 150%; /* Phóng to gradient khi hover */
+    opacity: 0.8; /* Giảm độ mờ nhẹ */
+    transform: scale(1.05); /* Phóng to nút một chút */
+  }
+  
+  
+  #player-container {
+    position: absolute;
+    position:fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 430px;
+    height: 70px;
+    margin: -4px auto;
+  }
+  
+
+
+
+  
+  #player {
+    position: relative;
+    height: 100%;
+    z-index: 3;
+  }
+  
+  #player-track {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    left: 15px;
+    padding: 13px 22px 10px 184px; /* Đã có padding-left để dành chỗ cho #album-art */
+    background-color: #9B4DE0;
+    border-radius: 15px 15px 0 0;
+    transition: 0.3s ease top;
+    z-index: 1;
+    overflow: hidden; /* Ẩn phần thừa nếu có */
+  }
+  
+  #player-track.active {
+    top: -92px;
+  }
+  
+  #album-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    white-space: nowrap; /* Không cho phép xuống dòng */
+    overflow: hidden; /* Ẩn phần thừa */
+    text-overflow: ellipsis; /* Hiển thị dấu ... khi quá dài */
+    max-width: 200px; /* Giới hạn chiều rộng, bạn có thể điều chỉnh giá trị này */
+  }
+  
+  #track-name {
+    color: #000000;
+    font-size: 13px;
+    margin: 2px 0 13px 0;
+  }
+  
+  #track-time {
+    height: 12px;
+    margin-bottom: 3px;
+    overflow: hidden;
+  }
+  
+  #current-time {
+    color: rgb(255, 255, 255);
+    float: left;
+  }
+  
+  #track-length {
+    float: right;
+  }
+  
+  #current-time,
+  #track-length {
+    color: rgb(255, 255, 255);
+    font-size: 11px;
+    border-radius: 10px;
+    transition: 0.3s ease all;
+  }
+  
+  #track-time.active #current-time,
+  #track-time.active #track-length {
+    color: #f86d92;
+    background-color: transparent;
+  }
+  
+  #seek-bar-container,
+  #seek-bar {
+    position: relative;
+    height: 10px;
+    border-radius: 4px;
+  }
+  
+  #seek-bar-container {
+    background-color: #ffe8ee;
+    cursor: pointer;
+  }
+  
+  #seek-time {
+    position: absolute;
+    top: -29px;
+    color: #fff;
+    font-size: 12px;
+    white-space: pre;
+    padding: 5px 6px;
+    border-radius: 4px;
+    display: none;
+  }
+  
+  #s-hover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.2;
+    z-index: 2;
+  }
+  
+  #seek-time,
+  #s-hover {
+    background-color: #3b3d50;
+  }
+  
+  #seek-bar {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background-color: #fd6d94;
+    transition: 0.2s ease width;
+    z-index: 1;
+  }
+  
+  #player-content {
+    position: relative;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 30px 80px #656565;
+    border-radius: 15px;
+    z-index: 2;
+  }
+  
+#album-art {
+  position: absolute;
+  top: -40px;
+  width: 115px;
+  height: 115px;
+  margin-left: 40px;
+  transform: rotateZ(0);
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 10px #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ccc; /* Màu xám mặc định để che phần màu tím */
+}
+  
+  #album-art.active {
+    top: -60px;
+    box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
+  }
+  
+  #album-art:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    margin: -10px auto 0 auto;
+    background-color: #d6dee7;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px #fff;
+    z-index: 2;
+  }
+  
+  #album-art img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  #album-art img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  #album-art.active img.active {
+    z-index: 1;
+    animation: rotateAlbumArt 3s linear 0s infinite forwards;
+  }
+  
+  @keyframes rotateAlbumArt {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+  
+  #buffer-box {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    height: 13px;
+    color: #1f1f1f;
+    font-size: 13px;
+    font-family: Helvetica;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+    padding: 6px;
+    margin: -12px auto 0 auto;
+    background-color: rgba(255, 255, 255, 0.19);
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  #album-art img,
+  #buffer-box {
+    transition: 0.1s linear all;
+  }
+  
+  #album-art.buffering img {
+    opacity: 0.25;
+  }
+  
+  #album-art.buffering img.active {
+    opacity: 0.8;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+  }
+  
+  #album-art.buffering #buffer-box {
+    opacity: 1;
+  }
+  
+  #player-controls {
+    display: flex;
+    justify-content: center; /* Căn giữa các nút */
+    align-items: center;
+    width: 250px;
+    height: 100%;
+    margin: 0 5px 0 141px;
+    float: right;
+  }
+  .control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Giữ kích thước cố định */
+    height: 60px;
+    padding: 5px;
+}
+  
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+  
+  .button i {
+    display: block;
+    color: #d6dee7;
+    font-size: 26px;
+    text-align: center;
+    line-height: 1;
+  }
+  
+  .button,
+  .button i {
+    transition: 0.2s ease all;
+  }
+  
+  .button:hover {
+    background-color: #d6d6de;
+    transform: scale(1.1); /* Hiệu ứng nhẹ khi hover */
+}
+  
+  .button:hover i {
+    color: #fff;
+  }
+  
+
+
+/* Danh sách nhạc */
+.playlist {
+  margin-bottom: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  max-height: 320px; /* Giới hạn chiều cao, bạn có thể điều chỉnh giá trị này */
+  overflow-y: auto; /* Cho phép cuộn theo chiều dọc */
+  padding-right: 5px; /* Thêm padding để tránh thanh cuộn che nội dung */
+}
+
+/* Tùy chỉnh thanh cuộn (nếu cần) */
+.playlist::-webkit-scrollbar {
+  width: 8px; /* Chiều rộng thanh cuộn */
+}
+
+.playlist::-webkit-scrollbar-track {
+  background: #170f23; /* Màu nền của thanh cuộn */
+  border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+  background: #FFFFFF4C; /* Màu của thanh cuộn */
+  border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+  background: #7a3cb8; /* Màu khi hover */
+}
+  .playlist-item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background: #333;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .playlist-item:hover {
+    background: #444;
+  }
+  
+  .playlist-item.active {
+    background: #1db954;
+    color: white;
+  }
+  
+  .playlist-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .playlist-info h4 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .playlist-info p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+
+
+  .playlist {
+    display: flex;
+    flex-direction: column; /* Hiển thị danh sách dọc */
+    gap: 10px; /* Khoảng cách giữa các bài hát */
+    padding: 10px;
+    max-width: 400px; /* Giới hạn chiều rộng */
+  }
+  
+  .song-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background:   #170f23;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .song-item:hover {
+    background: #4e3a6c;
+  }
+  
+  .song-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  
+  .song-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .song-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .song-artist {
+    font-size: 14px;
+    color: #9d9d9d;
+  }
+  
+
+  .song-item-right {
+    display: flex;
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    gap: 5px; /* Khoảng cách giữa số lượng like và icon */
+  }
+  
+  .song-item-right small {
+    color: white;
+    font-size: 14px; /* Đảm bảo rằng số lượng like không quá lớn */
+  }
+  
+  .song-item-right svg {
+    font-size: 18px; /* Điều chỉnh kích thước icon */
+  }
+  
+
+  .lyrics-container {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    width: 500px;
+    height: 300px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow-y: auto;
+    transition: opacity 1s ease-in-out; /* Thêm opacity transition */
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Hiệu ứng mờ dần cho video */
+  }
+  
+  /* Khi chuyển đổi, làm mờ media cũ */
+  .lyrics-container.fade {
+    opacity: 0;
+  }
+  
+  .lyrics-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .lyrics-container p {
+    z-index: 10;
+    font-size: 25px;
+    text-align: center; /* Căn giữa chữ theo chiều ngang */
+    margin: 0; /* Loại bỏ margin để căn chính xác hơn */
+  }
+  .lyrics-full{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+  }
+  .lyric-line {
+    color: #ffffff; /* Đổi sang trắng để nổi bật hơn */
+    display: inline-block;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    font-weight: bold; 
+    white-space: pre;
+  }
+  
+  .lyric-char {
+    color: #ffffff;
+    display: inline-block;
+  }
+
+.music-header-option{
+  justify-content: space-between;
+}
+.music-header-option button{
+  height: 50px;
+}
+.music-header-option input{
+  width: 200px;
+}

@@ -1,0 +1,276 @@
+@import url('config.css');
+
+/* Container chính của Admin */
+.adminContainer {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    width: 25%;
+    background: linear-gradient(150deg, var(--main-color), #ffffff);
+    height: 100vh;
+    padding-left: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+}
+.sidebar ul li a{
+    padding: 10px;
+    padding-right: 80px;
+    width: 100%;
+    
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Tiêu đề */
+.adminTitle {
+    font-size: 24px;
+    padding: 15px;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Nội dung chính */
+.adminContent {
+    width: 75%; /* Điều chỉnh lại */
+    margin-left: 25%; /* Dịch sang phải bằng đúng chiều rộng sidebar */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+
+/* Bố cục nội dung */
+.contentColName, .contentItem {
+    display: flex;
+    margin: 0 50px;
+}
+
+.contentColName {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.contentItem {
+    padding: 10px 0;
+}
+
+.contentItem p {
+    margin: 0;
+}
+
+/* Nút chỉnh sửa */
+.contentItemUpdate {
+    display: flex;
+}
+
+.contentItemUpdate button {
+    margin: 0 10px;
+}
+
+/* ===============================CONTENT============================== */
+
+/* Bố cục tiêu đề danh sách */
+.contentColName {
+    display: flex;
+    font-weight: bold;
+    color: var(--main-color);
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Dòng bài viết */
+.contentItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+/* Cột Email */
+.columnId {
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Cột Email */
+.columnEmail {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Cột Avatar */
+.columnAvatar {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Ảnh Avatar */
+.imgAvt {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Cột Nội dung */
+.columnContent {
+    width: 250px;
+    word-wrap: break-word;
+}
+
+/* Cột Đính kèm */
+.columnAttachment {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Ảnh Đính kèm */
+.attachmentImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+/* Cột Ngày đăng */
+.columnDate {
+    width: 150px;
+    text-align: center;
+}
+
+/* Cột Xóa */
+.columnDelete {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Áp dụng gradient cho các nút chung, trừ nút xóa */
+
+/* Hiệu ứng hover */
+button:not(.btnDanger):hover {
+    filter: brightness(1.2);
+}
+
+/* Nút Xóa - giữ nguyên màu đỏ */
+.btnDanger {
+    background-color: red; /* Giữ màu đỏ */
+    background-image: none; /* Loại bỏ gradient */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.btnDanger:hover {
+    background-color: darkred;
+}
+
+
+/* CHỈNH SỬA Ở PHẦN COMMENT */
+.commentGroup {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .commentItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .btnDanger {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  .commentGroup {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 20px 0;
+    background: #f9f9f9;
+  }
+  
+  .postHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .postHeader .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .postContent {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .commentItem {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .commentUserInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .commentUserInfo .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+
+  .btnPrimary{
+    margin-bottom: 10px;
+  }

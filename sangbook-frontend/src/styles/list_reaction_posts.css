@@ -1,0 +1,32 @@
+.post-reaction-list{
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    background-color: #fff;
+    position:absolute;
+    top: 50%;
+    left: -60%;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.post-reaction-list-item{
+    
+    display: flex;
+    padding: 10px;
+    position: relative;
+}
+.post-reaction-list-item i{
+    position: absolute;
+    cursor: pointer;
+    top: 60%;
+    left: 25%;
+    border-radius: 100%;
+    font-size: 20px;
+}
+
+.post-reaction-list span{
+    cursor: pointer;
+}
+

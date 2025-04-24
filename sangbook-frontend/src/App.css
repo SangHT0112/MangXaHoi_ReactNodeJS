@@ -1,0 +1,60 @@
+.main{
+  background-color: var(--background-color);
+  display: flex;
+  justify-content:  center;
+}
+/* Sidebar */
+.sidebar {
+  position: fixed;  /* Giữ cố định khi cuộn */
+  left: 0;        
+  width: 30%;      
+  height: 100%;  
+  background: linear-gradient(120deg, #4a90e2, #ffffff); 
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1); 
+  z-index: 10;   
+  transition: background 1s ease;
+}
+.SidebarRight{
+  position: fixed;  /* Giữ cố định khi cuộn */
+  top: 56px;        
+  right: 0;        
+  width: 30%;       
+  height: 100%;    
+  background: linear-gradient(120deg, #ffffff, #4a90e2);
+  box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1); 
+  z-index: 10;      /* Đảm bảo sidebar right hiển thị phía trên các phần tử khác */
+}
+
+
+.content{
+  width: 40%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 40px;
+}
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 25%;
+  }
+
+  .SidebarRight {
+    width: 25%;
+  }
+
+  .content {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar, .SidebarRight {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0 20px;
+  }
+}

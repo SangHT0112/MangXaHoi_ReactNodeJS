@@ -1,0 +1,151 @@
+
+
+.add-friend-page {
+    padding: 20px;
+    background-color: #f0f2f5; /* Màu nền giống Facebook */
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .add-friend-page h2 {
+    font-size: 24px;
+    color: #1c1e21;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  /* Lời mời kết bạn (FriendRequest) */
+  .friend-request {
+    
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .friend-request-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .friend-request-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .friend-request-item .img-avt {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .friend-request-item span {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #1c1e21;
+    font-weight: 500;
+  }
+  
+  .friend-request-item .d-flex {
+    gap: 10px;
+  }
+  
+  .btn-accept-friend,
+  .btn-decline-friend {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-accept-friend {
+    background-color: #1877f2; /* Màu xanh Facebook */
+    color: white;
+  }
+  
+  .btn-accept-friend:hover {
+    background-color: #165db7;
+  }
+  
+  .btn-decline-friend {
+    background-color: #e4e6eb;
+    color: #050505;
+  }
+  
+  .btn-decline-friend:hover {
+    background-color: #d8dade;
+  }
+  
+  /* Gợi ý kết bạn */
+  .suggested-friend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .suggested-friend-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .suggested-friend-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .suggested-friend-item .img-avt {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .suggested-friend-item span {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #1c1e21;
+    font-weight: 500;
+  }
+  
+  .suggested-friend-item button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1877f2;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .suggested-friend-item button:hover {
+    background-color: #165db7;
+  }
+  
+  /* Thông báo không có dữ liệu */
+  .friend-request p,
+  .suggested-friend-list p {
+    text-align: center;
+    color: #65676b;
+    font-size: 16px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

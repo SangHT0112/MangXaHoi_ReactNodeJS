@@ -1,0 +1,198 @@
+.post {
+    margin-top: 15px;
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.post-name {
+    font-weight: bold;
+}
+
+.post-time {
+    color: gray;
+    font-size: 12px;
+}
+
+.post-header i.fa-close {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+/*post modal  */
+.post-modal-header{
+    display: flex;
+}
+
+
+/* Nội dung bài đăng */
+.post-content p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.post-content img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Footer */
+.post-footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    font-size: 14px;
+    color: gray;
+}
+
+.post-reactions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.post-reaction-quantity span{
+    padding-right: 10px;
+}
+
+.post-reactions i {
+    color: red;
+}
+
+.post-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 10px;
+    margin: 0 15px;
+    border-bottom: 1px solid rgb(130, 128, 128);
+}
+.post-text img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.post-text input{
+    width: 396px;
+    padding: 8px 12px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: #f0f2f5;
+    outline: none;
+}
+
+
+.post-types {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 15px;
+}
+
+
+
+/* ============================BUTTON Nút hành động======================================= */
+.post-btn {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ccc;
+    padding-top: 15px ;
+}
+
+.post-btn button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    color: #606770;
+    font-weight: bold;
+}
+
+.post-btn button:hover {
+    background-color: #f0f2f5;
+    border-radius: 5px;
+}
+
+/* ====================like================================== */
+.btn-like.liked {
+    
+    color: #1877F2; /* Màu xanh khi đã thích */
+}
+.post-footer{
+    position: relative;
+}
+
+.post-btn-item{
+    font-size: 20px;
+    position: relative;
+    width: 100%;
+}
+.post-reactions-like{
+    background-color: #fff;
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    font-size: 40px;
+
+}
+
+.post-reactions-like.show{
+    opacity: 1;
+    visibility: visible;
+}
+.post-reactions-like i{
+    border-radius: 50%;
+}
+
+.post-reactions-like i:hover{
+    font-size: 50px;
+}
+
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.post-content img, 
+.post-content video {
+    width: 100%;  /* Hiển thị full chiều rộng */
+    min-width: 450px;
+    max-height: 650px; /* Giới hạn chiều cao */
+    object-fit: cover; /* Cắt ảnh/video vừa khung */
+    border-radius: 10px;
+}
+.comment-input{
+    margin-top: 10px;
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
